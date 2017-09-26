@@ -1,0 +1,23 @@
+{
+  "name": "flashcard_generator",
+  "version": "1.0.0",
+  "description": "My Flashcard Generator",
+  "main": "BasicCard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jasonnavarro86/Flashcard_Generator.git"
+  },
+  "author": "Jason Navarro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jasonnavarro86/Flashcard_Generator/issues"
+  },
+  "homepage": "https://github.com/Jasonnavarro86/Flashcard_Generator#readme",
+  "dependencies": {
+    "inquirer": "^3.3.0",
+    "raven": "^2.1.2"
+  }
+}
