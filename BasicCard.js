@@ -1,92 +1,122 @@
 var inquirer = require("inquirer");
+var http = require('http');
+var fs = require('fs');
+
+
+questionArray = [];
+answerArray = []
 
 function flashCard(front, back) {
     if (!(this instanceof flashCard)) {
         return new flashCard(front, back);
-        Raven.captureException(e);
+
     }
     this.front = front;
     this.back = back;
 }
+// I create my constructors 
+var constructorArray = [{
+        question: flashCard("What is Bob Marley's real name?", 'Robert Nesta Marley')
+    },
+    {
+        question: flashCard('Where was Bob Marley born?', 'Nine Mile Jamaica')
+    },
+    {
+        question: flashCard('What was the name of the group where Marley started his career?', 'The Wailers')
+    },
+    {
+        question: flashCard('Bob was bullied and derogatorily nicknamed what by his neighbors growing up?', 'White Boy')
+    },
+    {
+        question: flashCard("What was Marley's first hit outside Jamaica?", 'No Woman No Cry')
+    }
+]
 
-var question1 = flashCard("What is Bob Marley's real name?" , 'Robert Nesta Marley');
-var question2 = flashCard('Where was Bob Marley born?' , 'Nine Mile Jamaica');
-var question3 = flashCard('What was the name of the group where Marley started his career?' , 'The Wailers');
-var question4 = flashCard('Bob was bullied and derogatorily nicknamed what by his neighbors growing up?' , 'White Boy');
-var question5 = flashCard("What was Marley's first hit outside Jamaica?" , 'No Woman No Cry');
+// Welcome logs
+console.log("\nWelcome to Bob Marley Trivia");
+console.log("________________________________\n");
 
-console.log("\nWelcome to Bob Marley Trivia\n");
-
+// Score Keeper Variable 
 var score = 0;
-inquirer
-    .prompt([
-        {
-            type: 'confirm', 
-            message: "Want To Play Bob Marley Trivia?",
-            name:'confirm',
+var loopInt = 0;
+// This function prompts Do You Want To Play? 
+var startGame = function () {
+
+    inquirer
+        .prompt([{
+            type: 'confirm',
+            message: "Want To Play?\n",
+            name: 'confirm',
             default: true
-        },
-    {
-        type: 'input', 
-        message: question1.front,
-        name:'answer1',
-    },
-    {
-        type: 'input',
-        message: question2.front,
-        name: 'answer2',
-
-    },
-        {
-        type: 'input',
-        message: question3.front,
-        name: 'answer3',
-    },
-    {
-        type: 'input',
-        message: question4.front,
-        name: 'answer4',
-
-    },
-    {
-        type: 'input',
-        message: question5.front,
-        name: 'answer5',
-
-    },
- 
-])
-.then(function(inquirerResult){
-
+        }, ])
+        .then(function (inquirerResult) {
+            if (inquirerResult.confirm == false) {
+                console.log("\nSorry To Hear, Come Back When You Want To Play!\n");
+            } else {
+                generateQuestions();
+            }
+        });
+}
+startGame();
+// Main Game Generator 
+var generateQuestions = function () {
 
   
-if(inquirerResult.answer1 == question1.back.toLowerCase()){
-    score ++;
+
+    if (loopInt < 5) {
+       
+        inquirer
+            .prompt([{
+
+                    message: constructorArray[loopInt].question.front,
+                    name: 'answer',
+
+                },
+               
+            ])
+            .then(function (inquirerResult) {
+
+                if(inquirerResult.answer == constructorArray[loopInt].question.back.toLowerCase()){
+                    score ++;
+                }
+
+                loopInt++;
+                generateQuestions();
+                
+            })
+
+          
+        }
+    else{
+        console.log("\n ________________________________\n");
+                console.log("\nYou answered " + score + " correct out of 5.\n");
+    }
 }
-if(inquirerResult.answer2 == question2.back.toLowerCase()){
-    score ++;
-}
-if(inquirerResult.answer3 == question3.back.toLowerCase()){
-    score ++;
-}
-if(inquirerResult.answer4 == question4.back.toLowerCase()){
-    score ++;
-}
-if(inquirerResult.answer5 == question5.back.toLowerCase()){
-    score ++;
-}
-console.log("\n ________________________________\n");
- console.log("\nYou answered " + score + " correct out of 5.\n");
 
 
-})
 
-module.exports = {
-    question1: question1,
-    question2: question2,
-    question3: question3,
-    question4: question4,
-    question5: question5
-}
+// module.exports = {
+//     question1: question1,
+//     question2: question2,
+//     question3: question3,
+//     question4: question4,
+//     question5: question5
+// }
 
- 
+
+
+   // var server = http.createServer(function(req, res){
+
+                //     res.writeHead(200, {'Content-Type':'text/html'});
+
+                //     var myStream = fs.createReadStream(__dirname + '/flash.html', 'utf8');
+
+                //     // myStream.pipe(res + "\nYou answered " + score + " correct out of 5.\n");
+                // res.end("\nYou answered " + score + " correct out of 5.\n")
+                // })
+
+                //  server.listen(2222);
+
+                
+                                //     }
+                                // }
