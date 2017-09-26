@@ -1,20 +1,8 @@
-var inquirer = require("inquirer");
-var http = require('http');
-var fs = require('fs');
-
-
-questionArray = [];
-answerArray = []
-
-function flashCard(front, back) {
-    if (!(this instanceof flashCard)) {
-        return new flashCard(front, back);
-
-    }
-    this.front = front;
-    this.back = back;
-}
-// I create my constructors 
+var inquirer = require("inquirer")
+var http = require('http')
+var fs = require('fs')
+var flashCard = require('./BasicCardGenorator.js')
+// I create my new constructors 
 var constructorArray = [{
         question: flashCard("What is Bob Marley's real name?", 'Robert Nesta Marley')
     },
@@ -36,7 +24,7 @@ var constructorArray = [{
 console.log("\nWelcome to Bob Marley Trivia");
 console.log("________________________________\n");
 
-// Score Keeper Variable 
+// Score Keeper and loop Variable 
 var score = 0;
 var loopInt = 0;
 // This function prompts Do You Want To Play? 
@@ -61,10 +49,8 @@ startGame();
 // Main Game Generator 
 var generateQuestions = function () {
 
-  
-
     if (loopInt < 5) {
-       
+
         inquirer
             .prompt([{
 
@@ -72,51 +58,36 @@ var generateQuestions = function () {
                     name: 'answer',
 
                 },
-               
+
             ])
             .then(function (inquirerResult) {
 
-                if(inquirerResult.answer == constructorArray[loopInt].question.back.toLowerCase()){
-                    score ++;
+                if (inquirerResult.answer == constructorArray[loopInt].question.back.toLowerCase()) {
+                    score++;
                 }
 
                 loopInt++;
                 generateQuestions();
-                
-            })
 
-          
-        }
-    else{
-        console.log("\n ________________________________\n");
-                console.log("\nYou answered " + score + " correct out of 5.\n");
+            })
+    } else {
+        console.log("\nThank You For Playing Bob Marley Trivia! You answered " + score + " correct out of 5.\n");
     }
 }
 
 
+// var server = http.createServer(function(req, res){
 
-// module.exports = {
-//     question1: question1,
-//     question2: question2,
-//     question3: question3,
-//     question4: question4,
-//     question5: question5
+//     res.writeHead(200, {'Content-Type':'text/html'});
+
+//     var myStream = fs.createReadStream(__dirname + '/flash.html', 'utf8');
+
+//     // myStream.pipe(res + "\nYou answered " + score + " correct out of 5.\n");
+// res.end("\nYou answered " + score + " correct out of 5.\n")
+// })
+
+//  server.listen(2222);
+
+
+//     }
 // }
-
-
-
-   // var server = http.createServer(function(req, res){
-
-                //     res.writeHead(200, {'Content-Type':'text/html'});
-
-                //     var myStream = fs.createReadStream(__dirname + '/flash.html', 'utf8');
-
-                //     // myStream.pipe(res + "\nYou answered " + score + " correct out of 5.\n");
-                // res.end("\nYou answered " + score + " correct out of 5.\n")
-                // })
-
-                //  server.listen(2222);
-
-                
-                                //     }
-                                // }
