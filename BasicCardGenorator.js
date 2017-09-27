@@ -1,4 +1,4 @@
-module.exports = function flashCard(front, back) {
+function flashCard(front, back) {
     if (!(this instanceof flashCard)) {
         return new flashCard(front, back);
 
@@ -6,3 +6,5 @@ module.exports = function flashCard(front, back) {
     this.front = front;
     this.back = back;
 }
+
+module.exports = flashCard;
