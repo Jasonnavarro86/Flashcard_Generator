@@ -19,17 +19,14 @@ var constructorArray = [{
         question: flashCard("What was Marley's first hit outside Jamaica?", 'No Woman No Cry')
     }
 ]
-
 // Welcome logs
 console.log("\nWelcome to Bob Marley Trivia");
 console.log("________________________________\n");
-
 // Score Keeper and loop Variable 
 var score = 0;
 var loopInt = 0;
 // This function prompts Do You Want To Play? 
 var startGame = function () {
-
     inquirer
         .prompt([{
             type: 'confirm',
@@ -48,46 +45,31 @@ var startGame = function () {
 startGame();
 // Main Game Generator 
 var generateQuestions = function () {
-
     if (loopInt < 5) {
-
         inquirer
             .prompt([{
-
                     message: constructorArray[loopInt].question.front,
                     name: 'answer',
-
                 },
-
             ])
             .then(function (inquirerResult) {
-
                 if (inquirerResult.answer == constructorArray[loopInt].question.back.toLowerCase()) {
                     score++;
                 }
-
                 loopInt++;
                 generateQuestions();
-
             })
     } else {
         console.log("\nThank You For Playing Bob Marley Trivia! You answered " + score + " correct out of 5.\n");
     }
 }
+var server = http.createServer(function(req, res){
 
+    res.writeHead(200, {'Content-Type':'text/html'});
 
-// var server = http.createServer(function(req, res){
+    var myStream = fs.createReadStream(__dirname + '/flash.html', 'utf8');
 
-//     res.writeHead(200, {'Content-Type':'text/html'});
-
-//     var myStream = fs.createReadStream(__dirname + '/flash.html', 'utf8');
-
-//     // myStream.pipe(res + "\nYou answered " + score + " correct out of 5.\n");
-// res.end("\nYou answered " + score + " correct out of 5.\n")
-// })
-
-//  server.listen(2222);
-
-
-//     }
-// }
+    myStream.pipe(res);
+    // res.end("\nYou answered " + score + " correct out of 5.\n")
+})
+ server.listen(2222);

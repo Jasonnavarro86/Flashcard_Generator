@@ -1,9 +1,15 @@
 var clozeCard = require('./ClozeCardGenorator.js')
-
 var inquirer = require("inquirer")
 var http = require('http')
 var fs = require('fs')
 var ClozeCard = require('./ClozeCardGenorator.js')
+var JSONS = require('./cloze')
+
+// Score Keeper and loop Variable 
+var score = 0;
+var loopInt = 0;
+
+
 // I create my new constructors 
 var constructorArray = [{
         question: ClozeCard("Bob Marley's real name is Robert Nesta Marley", 'Robert Nesta Marley')
@@ -26,9 +32,7 @@ var constructorArray = [{
 console.log("\nWelcome to Bob Marley Trivia");
 console.log("________________________________\n");
 
-// Score Keeper and loop Variable 
-var score = 0;
-var loopInt = 0;
+
 
 // This function prompts Do You Want To Play? 
 var startGame = function () {

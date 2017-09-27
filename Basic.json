@@ -1,0 +1,20 @@
+{
+    "BasicCard": [{
+        "Category" : "Bob Marley Trivia",
+        "Questions" : ["What is Bob Marley's real name?", "Where was Bob Marley born?", "What was the name of the group where Marley started his career?", "Bob was bullied and derogatorily nicknamed what by his neighbors growing up?", "What was Marley's first hit outside Jamaica?"],
+        "Answers" : ["Robert Nesta Marley", "Nine Mile Jamaica", "The Wailers", "White Boy", "No Woman No Cry"]
+        
+    },
+    {
+        "Category" : "Movie Trivia",
+        "Questions" : ["What Movie Trilogy Is Most Famous For A Hover Board?", "Who's mom calls football 'The Devil!'?", "Who is from Tatooine?", "What Movie had romantic characters name Jack and Rose?", "What movie has a dream within a dream?"],
+        "Answers" : ["Back To The Future", "The Waterboy", "Luke Skywalker", "Titanic", "Inception"]
+        
+    },
+    {
+        "Category" : "NBA Nick Name Trivia",
+        "Questions" : ["Who is the Black Mamba?", "Who is the Baby Face Assassin?", "Who is His Airness?", "Who is the Claw?", "Who is The Durantula?"],
+        "Answers" : ["Kobe Bryant", "Steph Curry", "Michael Jordan", "Kawhi Leonard", "Kevin Durant"]
+        
+    }]
+}

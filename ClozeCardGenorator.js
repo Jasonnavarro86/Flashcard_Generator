@@ -4,16 +4,13 @@ function clozeCard(fullText, cloze) {
     if (!(this instanceof clozeCard)) {
         return new clozeCard(fullText, cloze);
     }
-
     this.fullText = fullText;
     this.cloze = cloze;
-
     // This is where I push the index of the matching words inside the full text from the cloze.
     var array = [];
     // Here I split both the parameters entered in the new instance for comparison.
     var splitText = fullText.split(" ")
     var splitCloze = cloze.split(" ")
-
     // Here is my loop that pushes the index of the matching letters. 
     for (var i = 0; i < splitCloze.length; i++) {
         array.push(splitText.indexOf(splitCloze[i]));
