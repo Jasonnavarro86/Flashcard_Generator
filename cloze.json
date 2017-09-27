@@ -1,13 +1,12 @@
-{
-    "ClozeCard": [{
+[{
         "Category" : "Bob Marley Trivia",
-        "FullText" : ["Bob Marley's real name is Robert Nesta Marley ", "Bob Marley was born in Nine Mile Jamaica", "The Wailers is the name of the group where Marley started his career", "Bob was bullied and derogatorily nicknamed White Boy by his neighbors growing up.", "No Woman No Cry was Marley's first hit outside Jamaica?"],
+        "FullText" : ["Bob Marley's real name is Robert Nesta Marley ", "Bob Marley was born in Nine Mile Jamaica", "The Wailers is the name of the group where Marley started his career", "Bob was bullied and derogatorily nicknamed White Boy by his neighbors growing up", "No Woman No Cry was Marley's first hit outside Jamaica"],
         "Cloze" : ["Robert Nesta Marley", "Nine Mile Jamaica", "The Wailers", "White Boy", "No Woman No Cry"]
         
     },
     {
         "Category" : "Movie Trivia",
-        "FullText" : ["What Movie Trilogy Is Most Famous For A Hover Board?", "Who's mom calls football 'The Devil!'?", "Who is from Tatooine?", "What Movie had romantic characters name Jack and Rose?", "What movie has a dream within a dream?"],
+        "FullText" : ["The Movie Most Trilogy Most Famous For A Hover Board is Back To The Future", "Who's mom calls football 'The Devil!'?", "Who is from Tatooine?", "What Movie had romantic characters name Jack and Rose?", "What movie has a dream within a dream?"],
         "Cloze" : ["Back To The Future", "The Waterboy", "Luke Skywalker", "Titanic", "Inception"]
         
     },
@@ -17,4 +16,3 @@
         "Cloze" : ["Kobe Bryant", "Steph Curry", "Michael Jordan", "Kawhi Leonard", "Kevin Durant"]
         
     }]
-}

@@ -1,83 +1,70 @@
-var clozeCard = require('./ClozeCardGenorator.js')
 var inquirer = require("inquirer")
-var http = require('http')
-var fs = require('fs')
-var ClozeCard = require('./ClozeCardGenorator.js')
+var ClozeCard = require('./library/ClozeCardGenorator.js')
+var BasicCard = require('./library/BasicCardGenorator.js')
 var JSONS = require('./cloze')
 
 // Score Keeper and loop Variable 
 var score = 0;
 var loopInt = 0;
-
-
-// I create my new constructors 
-var constructorArray = [{
-        question: ClozeCard("Bob Marley's real name is Robert Nesta Marley", 'Robert Nesta Marley')
-    },
-    {
-        question: ClozeCard('Bob Marley was born in Nine Mile Jamaica', 'Nine Mile Jamaica')
-    },
-    {
-        question: ClozeCard('The Wailers was the name of the group where Marley started his career', 'The Wailers')
-    },
-    {
-        question: ClozeCard('Marley was bullied and derogatorily nicknamed White Boy by his neighbors growing up', 'White Boy')
-    },
-    {
-        question: ClozeCard("Marley's first hit outside Jamaica was No Woman No Cry", 'No Woman No Cry')
-    }
-]
+var jsonNum = 0;
 
 // Welcome logs
-console.log("\nWelcome to Bob Marley Trivia");
-console.log("________________________________\n");
+console.log("\n Welcome To Flash N Cloze\n");
 
-
-
-// This function prompts Do You Want To Play? 
+// This function starts the game and asks the user what they want to do. 
 var startGame = function () {
 
     inquirer
-        .prompt([{
-            type: 'confirm',
-            message: "Want To Play?\n",
-            name: 'confirm',
-            default: true
-        }, ])
+        .prompt([  {
+            type: "list",
+            message: "What Would You Like To Do?",
+            choices: ["Play Bob Marley Trivia", "Play Movie Trivia", "Play NBA Nick Name Trivia", "Build My Own Flash Card", "Build My Own Cloze Card"],
+            name: "answer"
+          }, ])
         .then(function (inquirerResult) {
-            if (inquirerResult.confirm == false) {
-                console.log("\nSorry To Hear, Come Back When You Want To Play!\n");
-            } else {
-                generateQuestions();
+            if (inquirerResult.answer == "Play Bob Marley Trivia") {
+                TriviaQuestions()
+            }else if(inquirerResult.answer == "Play Movie Trivia"){ 
+                jsonNum = 1;
+                TriviaQuestions()
+            }else if(inquirerResult.answer == "Play NBA Nick Name Trivia"){ 
+                jsonNum = 2;
+                TriviaQuestions()
+            }else if(inquirerResult.answer == "Build My Own Flash Card"){ 
+                
+            }else if(inquirerResult.answer == "Build My Own Cloze Card"){ 
+                
+            }else {
+                // generateQuestions();
             }
         });
 }
 startGame();
-// Main Game Generator 
-var generateQuestions = function () {
 
-    if (loopInt < constructorArray.length) {
+
+// Main Game Generator 
+var TriviaQuestions = function () {
+    // I create my new constructors 
+var constructorArray = {
+    question: ClozeCard(JSONS[jsonNum].FullText[itemNum], JSONS[jsonNum].Cloze[itemNum])
+}
+    if (loopInt < 5) {
 
         inquirer
             .prompt([{
-
-                    message: constructorArray[loopInt].question.partial,
+                    message: constructorArray.question.partial,
                     name: 'answer',
-
                 },
-
             ])
             .then(function (inquirerResult) {
 
-                if (inquirerResult.answer == constructorArray[loopInt].question.cloze.toLowerCase()) {
+                if (inquirerResult.answer == constructorArray.question.cloze.toLowerCase()) {
                     score++;
                 }
-
                 loopInt++;
-                generateQuestions();
-
+                TriviaQuestions();
             })
     } else {
-        console.log("\nThank You For Playing Bob Marley Trivia! You answered " + score + " correct out of 5.\n");
+        console.log("\nThank You For Playing"+ +"! You answered " + score + " correct out of 5.\n");
     }
 }

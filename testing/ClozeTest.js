@@ -1,6 +1,6 @@
-var json = require('./cloze');
+var BasicJSON = require('./Basic');
 // var clozeCard = require('./ClozeCardGenorator.js')
-console.log(json.ClozeCard[0].Category);
+console.log(json[0].Category);
 
 // var GoodCloze = clozeCard("The president is George Washington", "George Washington")
 // var BadCloze = clozeCard("The president is George Washington", "Not NOT")

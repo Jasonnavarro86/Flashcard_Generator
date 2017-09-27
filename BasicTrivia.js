@@ -1,7 +1,6 @@
 var inquirer = require("inquirer")
-var http = require('http')
-var fs = require('fs')
-var flashCard = require('./BasicCardGenorator.js')
+var flashCard = require('./library/BasicCardGenorator.js')
+var BasicJSON = require('./Basic');
 // I create my new constructors 
 var constructorArray = [{
         question: flashCard("What is Bob Marley's real name?", 'Robert Nesta Marley')

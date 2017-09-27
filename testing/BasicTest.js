@@ -1,4 +1,4 @@
-var flashCard = require('./BasicCardGenorator.js')
+var flashCard = require('./library/BasicCardGenorator.js')
 var question1 = flashCard("What is Bob Marley's real name?" , 'Robert Nesta Marley')
 var question2 = flashCard('Where was Bob Marley born?' , 'Nine Mile Jamaica')
 

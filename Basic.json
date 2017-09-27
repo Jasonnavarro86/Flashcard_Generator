@@ -1,5 +1,4 @@
-{
-    "BasicCard": [{
+[{
         "Category" : "Bob Marley Trivia",
         "Questions" : ["What is Bob Marley's real name?", "Where was Bob Marley born?", "What was the name of the group where Marley started his career?", "Bob was bullied and derogatorily nicknamed what by his neighbors growing up?", "What was Marley's first hit outside Jamaica?"],
         "Answers" : ["Robert Nesta Marley", "Nine Mile Jamaica", "The Wailers", "White Boy", "No Woman No Cry"]
@@ -17,4 +16,3 @@
         "Answers" : ["Kobe Bryant", "Steph Curry", "Michael Jordan", "Kawhi Leonard", "Kevin Durant"]
         
     }]
-}
