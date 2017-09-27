@@ -1,6 +1,6 @@
 var clozeCard = require('./ClozeCardGenorator.js')
 var GoodCloze = clozeCard("The president is George Washington", "George Washington")
-var BadCloze = clozeCard("The president is George Washington", "Spaz")
+var BadCloze = clozeCard("The president is George Washington", "Not NOT")
 
 console.log("\nNo Error");
 console.log("Full Text: ", GoodCloze.fullText);
