@@ -17,7 +17,7 @@ This what the list looks like when you make your first one and how it works when
 
 ![madecardlist-cloze-4](https://user-images.githubusercontent.com/28733244/30970040-29b648f4-a432-11e7-92a7-df826993da14.gif)
 
-The list adds new cards and allows you to make upto 5 cards.
+When the user adds a new cards this it will show on the play list and users can make upto 5 cards.
 
 ![listtime2-cloze-5](https://user-images.githubusercontent.com/28733244/30970065-390f51e2-a432-11e7-929b-4ea722cd4662.gif)
 
