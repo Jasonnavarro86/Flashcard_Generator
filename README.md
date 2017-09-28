@@ -13,6 +13,7 @@ Here if you choose to play your cards before making them it will prompt you to c
 
 ![cardnotmade-andmake-cloze-3](https://user-images.githubusercontent.com/28733244/30970027-1bd2b4ac-a432-11e7-8514-6ad567ec68e2.gif)
 
+This what the list looks like when you make your first one and how it works when you play. It will also log your score.
 ![madecardlist-cloze-4](https://user-images.githubusercontent.com/28733244/30970040-29b648f4-a432-11e7-92a7-df826993da14.gif)
 
 ![listtime2-cloze-5](https://user-images.githubusercontent.com/28733244/30970065-390f51e2-a432-11e7-929b-4ea722cd4662.gif)
