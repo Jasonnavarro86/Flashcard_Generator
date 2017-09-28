@@ -65,7 +65,7 @@ var startGame = function () {
                     pickCard()
                     break;
                 default:
-                    console.log('\nHave A Great Day!\n');
+                    console.log('---\nHave A Great Day!---\n');
             }
         });
 }
@@ -100,7 +100,7 @@ var TriviaQuestions = function () {
     } 
     // Here if loop int is over the questions .length we end the game and print out the score and reset for next game.
     else {
-        console.log("\nThank You For Playing " + ClozeJson[jsonNum].Category + "! You answered " + score + " correct out of 5.\n");
+        console.log("\n---Thank You For Playing " + ClozeJson[jsonNum].Category + "! You answered " + score + " correct out of 5.---\n");
         score = 0;
         loopInt = 0;
         startGame()
@@ -112,7 +112,7 @@ var TriviaQuestions = function () {
 function createClozeFull() {
     // If the user tries to make more than 5 cards we console.log and reset.
     if (madeNum == 6) {
-        console.log("\nSorry You Can Only Build 5 Cards at a Time.\n");
+        console.log("\n---Sorry You Can Only Build 5 Cards at a Time.---\n");
         startGame();
     } else {
         // I only allow the user to make 5 questions per card.
@@ -125,7 +125,7 @@ function createClozeFull() {
                     // I check to see if the user is inputting some value if not I rerun the same question with instructions. 
                     validate: function (input) {
                         if (input === '') {
-                            console.log('\nPlease provide Full Text\n');
+                            console.log('\n---Please provide Full Text---\n');
                             return false;
                         } else {
                             return true;
@@ -145,7 +145,7 @@ function createClozeFull() {
             displayCard.push("#" + madeNum + ' made')
             madeNum++
             loopInt = 0;
-            console.log('\nNicely Done! Your New Cloze Card is Made\n');
+            console.log('\n---Nicely Done! Your New Cloze Card is Made---\n');
             startGame();
         }
 
@@ -153,16 +153,17 @@ function createClozeFull() {
 }
 // END
 
-// START
+// START: Here I take the users full text and their cloze and create a new instance of the CLOZE Constructor with their answers and store them.
 function createClozePartial() {
 
     inquirer
         .prompt([{
+            // There are the instructions on how to make the cloze. 
             message: ClozeJson[3].Cloze[loopInt],
             name: 'answer',
             validate: function (input) {
                 if (input === '') {
-                    console.log('\nPlease provide Cloze Text\n');
+                    console.log('\n---Please provide Cloze Text---\n');
                     return false;
                 } else {
                     return true;
@@ -171,27 +172,32 @@ function createClozePartial() {
 
         }])
         .then(function (inquirerResult) {
+            // This is where I create the new instance of the CLOZE CARD constructor. 
+            newUserConstructor.push( ClozeCard(createFullText[staticNum], inquirerResult.answer) )
 
-            newUserConstructor.push(ClozeCard(createFullText[staticNum], inquirerResult.answer))
-
+            // When I stringify the json I pushed in newUserConstructor (a line above) it removes the 'ClozeCard' from the json and formats it.
             var stringNew = JSON.stringify(newUserConstructor);
-
+            // Here I parse the new json.
             var parseNew = JSON.parse(stringNew);
+            // Here is where I store the users new cloze card (fulltext, cloze, and partial).
             storeNewCard.push(parseNew[staticNum].partial)
+
+            // I increment my loops 
             loopInt++
             staticNum++
-            // + " & Your Answer " + parseNew[loopInt].cloze
+            
             createClozeFull();
         })
 
 }
-
+// Here once a card is made I push it to a list and  store it for the user to come back and play it when ever they want.
 function pickCard() {
-
+    // If a card hasn't been made yet then this wont work and inform the user why.
     if (displayCard[0] == undefined) {
-        console.log("\nSorry You Have Not Built A Card Yet\n");
+        console.log("\n----Sorry You Have Not Built A Card Yet----\n");
         startGame();
     } else {
+        // Here the user chooses from their made cards.
         inquirer
             .prompt([{
                 type: "list",
@@ -199,6 +205,7 @@ function pickCard() {
                 choices: displayCard,
                 name: "answer"
             }, ])
+            // Depending on the card the user chooses display number changes to run through the UserCreatedArray.
             .then(function (inquirerResult) {
 
                 switch (inquirerResult.answer) {
@@ -223,12 +230,12 @@ function pickCard() {
                         showCard()
                         break;
                     default:
-                        console.log('\nHave A Great Day!\n');
+                        console.log('\n---Have A Great Day!---\n');
                 }
             });
     }
 }
-
+// Here I let the user play their cards the same as the trivia. 
 function showCard() {
     
     if (loopInt < 5) {
@@ -254,7 +261,7 @@ function showCard() {
 
             })
     } else {
-        console.log("\nNice Job! You answered " + score + " correct out of 5.\n");
+        console.log("\n---Nice Job! You answered " + score + " correct out of 5.---\n");
         score = 0;
         loopInt = 0;
         startGame()
