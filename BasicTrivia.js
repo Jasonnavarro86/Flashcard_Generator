@@ -35,7 +35,7 @@ var startGame = function () {
                     TriviaQuestions()
                     break;
                 default:
-                    console.log('\n---Have A Great Day!---\n');
+                    console.log('\n---Have A Great Day!---\ncl');
             }
         });
 }
