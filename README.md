@@ -9,7 +9,7 @@ This is trivia demo. Once you played a round your score will display.
 
 ![trivademo-cloze-2](https://user-images.githubusercontent.com/28733244/30969999-07fbd9b8-a432-11e7-850a-e9c149df6bad.gif)
 
-Here if you choose to play your cards before making them it will prompt you to create one first. Then when you choose to make a new card it will give you instructions on what to do and when your done it will log Great Job you made a new card.
+Here if you choose to play your cards before making them it will prompt you to create one first. Then when you choose to make a new card it will give you instructions on what to do. When your done it will display Great Job you made a new card.
 
 ![cardnotmade-andmake-cloze-3](https://user-images.githubusercontent.com/28733244/30970027-1bd2b4ac-a432-11e7-8514-6ad567ec68e2.gif)
 
