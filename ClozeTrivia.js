@@ -31,29 +31,30 @@ var displayCard = [];
 
 
 // Our Welcome Console Log
-console.log("\n Welcome! Play Cloze Trivia or Create Your Own Cloze Cards\n");
+console.log("\n______________________________________________________________________________\n \nWelcome To CLOZE-CITY! Here You Can Play Trivia or Create Your Own Cloze Cards!\n");
 
-// This function starts the game and asks the user what they want to do. 
+// START: This function starts the game and asks the user what they want to do then runs a new function on their response.
 var startGame = function () {
 
     inquirer
         .prompt([{
             type: "list",
             message: "What Would You Like To Do?",
-            choices: ["Play Bob Marley Trivia", "Play Movie Trivia", "Play NBA Nick Name Trivia", "Build My Own Cloze Card", "Play Your My Made Cards", "Im Done"],
+            choices: ["Play Bob Marley Trivia", "Play Movie Trivia", "Play NBA Nick-Name Trivia", "Build My Own Cloze Card", "Play Your My Made Cards", "Im Done"],
             name: "answer"
         }, ])
         .then(function (inquirerResult) {
 
             switch (inquirerResult.answer) {
                 case "Play Bob Marley Trivia":
+                    jsonNum = 0;
                     TriviaQuestions()
                     break;
                 case "Play Movie Trivia":
                     jsonNum = 1;
                     TriviaQuestions()
                     break;
-                case "Play NBA Nick Name Trivia":
+                case "Play NBA Nick-Name Trivia":
                     jsonNum = 2;
                     TriviaQuestions()
                     break;
@@ -68,51 +69,60 @@ var startGame = function () {
             }
         });
 }
+// END
 startGame();
 
-// Trivia Game starter for pre generated cloze cards.
+// START: This is the Trivia Game starter for pre generated cloze cards.
 var TriviaQuestions = function () {
 
-
+    // I only run the inquirer(rounds) the number of questions length.
     if (loopInt < ClozeJson[jsonNum].FullText.length) {
 
-        // I CREATE NEW INSTANCES OF CLOZE CARDS DYNAMICALLY 
+        // I CREATE NEW INSTANCES OF CLOZE CONSTRUCTORS DYNAMICALLY 
         var constructorArray = {
-            question: ClozeCard(ClozeJson[jsonNum].FullText[loopInt], ClozeJson[jsonNum].Cloze[loopInt])
+            new1: ClozeCard(ClozeJson[jsonNum].FullText[loopInt], ClozeJson[jsonNum].Cloze[loopInt])
         }
-
+        // The Messages Changes when the constructorArray changes every round.
         inquirer
             .prompt([{
-                message: constructorArray.question.partial,
+                message: constructorArray.new1.partial,
                 name: 'answer',
             }, ])
             .then(function (inquirerResult) {
-
-                if (inquirerResult.answer == constructorArray.question.cloze.toLowerCase()) {
+                // Here I compare their input with the cloze and increase the score if it matches.
+                if (inquirerResult.answer == constructorArray.new1.cloze.toLowerCase()) {
                     score++
                 }
+                // Here I increase the loop int and run this function again to traverse the json.
                 loopInt++
                 TriviaQuestions()
             })
-    } else {
+    } 
+    // Here if loop int is over the questions .length we end the game and print out the score and reset for next game.
+    else {
         console.log("\nThank You For Playing " + ClozeJson[jsonNum].Category + "! You answered " + score + " correct out of 5.\n");
         score = 0;
         loopInt = 0;
         startGame()
     }
 }
+// END
 
+// START: Here I allow users to create their own cloze cards.
 function createClozeFull() {
-
+    // If the user tries to make more than 5 cards we console.log and reset.
     if (madeNum == 6) {
         console.log("\nSorry You Can Only Build 5 Cards at a Time.\n");
         startGame();
     } else {
+        // I only allow the user to make 5 questions per card.
         if (loopInt < 5) {
+            // There are the instructions on how to make the card. 
             inquirer
                 .prompt([{
                     message: ClozeJson[3].FullText[loopInt],
                     name: 'answer',
+                    // I check to see if the user is inputting some value if not I rerun the same question with instructions. 
                     validate: function (input) {
                         if (input === '') {
                             console.log('\nPlease provide Full Text\n');
@@ -122,12 +132,15 @@ function createClozeFull() {
                         }
                     }
                 }, ])
+                
                 .then(function (inquirerResult) {
 
+                    // HERE I store what the user inputted they want the full text to be then push it into an array.
                     createFullText.push(inquirerResult.answer)
-
+                    // Here I run the second part of the users input and find out what part of the text is the cloze. 
                     createClozePartial();
                 })
+                // If the user made 5 questions I print a confirmation and restart the game.
         } else {
             displayCard.push("#" + madeNum + ' made')
             madeNum++
@@ -138,7 +151,9 @@ function createClozeFull() {
 
     }
 }
+// END
 
+// START
 function createClozePartial() {
 
     inquirer

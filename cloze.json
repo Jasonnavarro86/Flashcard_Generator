@@ -11,7 +11,7 @@
         
     },
     {
-        "Category" : "NBA Nick Name Trivia",
+        "Category" : "NBA Nick-Name Trivia",
         "FullText" : ["Kobe Bryant is the Black Mamba", "Steph Curry is the Baby Face Assassin", "Michael Jordan is His Airness", "Kawhi Leonard is the Claw", "Kevin Durant is The Durantula"],
         "Cloze" : ["Kobe Bryant", "Steph Curry", "Michael Jordan", "Kawhi Leonard", "Kevin Durant"]
         
