@@ -8,7 +8,7 @@ var loopInt = 0;
 var jsonNum = 0;
 
 // Welcome logs
-console.log("\n Welcome To Flash N Cloze\n");
+console.log("\n--- Welcome To Jason's Trivia World!---\n");
 
 // This function starts the game and asks the user what they want to do. 
 var startGame = function () {
@@ -17,7 +17,7 @@ var startGame = function () {
         .prompt([{
             type: "list",
             message: "What Would You Like To Do?",
-            choices: ["Play Bob Marley Trivia", "Play Movie Trivia", "Play NBA Nick Name Trivia", "Build My Own Flash Card", "Build My Own Cloze Card", "Im Done"],
+            choices: ["Play Bob Marley Trivia", "Play Movie Trivia", "Play NBA Nick Name Trivia", "Im Done"],
             name: "answer"
         }, ])
         .then(function (inquirerResult) {
@@ -34,14 +34,8 @@ var startGame = function () {
                     jsonNum = 2;
                     TriviaQuestions()
                     break;
-                case "Build My Own Flash Card":
-                    
-                    break;
-                case "Build My Own Cloze Card":
-                    
-                    break;
                 default:
-                    console.log('Have A Great Day!');
+                    console.log('\n---Have A Great Day!---\n');
             }
         });
 }
@@ -71,7 +65,7 @@ var TriviaQuestions = function () {
                 TriviaQuestions();
             })
     } else {
-        console.log("\nThank You For Playing " + BasicJSON[jsonNum].Category + "! You answered " + score + " correct out of 5.\n");
+        console.log("\n---Thank You For Playing " + BasicJSON[jsonNum].Category + "! You answered " + score + " correct out of 5.---\n");
         startGame();
     }
 }

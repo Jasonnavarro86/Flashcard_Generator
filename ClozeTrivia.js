@@ -31,7 +31,7 @@ var displayCard = [];
 
 
 // Our Welcome Console Log
-console.log("\n______________________________________________________________________________\n \nWelcome To CLOZE-CITY! Here You Can Play Trivia or Create Your Own Cloze Cards!\n");
+console.log("\n______________________________________________________________________________\n \nWelcome To CLOZE-CITY! Here You Can Play Trivia or Create Your Own Cloze Cards!\n______________________________________________________________________________\n\n");
 
 // START: This function starts the game and asks the user what they want to do then runs a new function on their response.
 var startGame = function () {
@@ -65,7 +65,7 @@ var startGame = function () {
                     pickCard()
                     break;
                 default:
-                    console.log('---\nHave A Great Day!---\n');
+                    console.log('\n---Have A Great Day!---\n');
             }
         });
 }
