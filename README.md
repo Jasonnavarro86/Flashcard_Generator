@@ -5,7 +5,7 @@ You have the option to play trivia or create your own cloze cards.
 
 ![intro-cloze](https://user-images.githubusercontent.com/28733244/30969979-f30df2d4-a431-11e7-852e-9bf9422751d0.gif)
 
-This is trivia demo and once you played a round your score will display.
+This is trivia demo. Once you played a round your score will display.
 
 ![trivademo-cloze-2](https://user-images.githubusercontent.com/28733244/30969999-07fbd9b8-a432-11e7-850a-e9c149df6bad.gif)
 
