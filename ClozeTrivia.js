@@ -3,13 +3,21 @@ var ClozeCard = require('./library/ClozeCardGenorator.js')
 var BasicCard = require('./library/BasicCardGenorator.js')
 var ClozeJson = require('./cloze')
 
-// Score Keeper ,loop Variables, and custom card arrays.
+// Score Keeper.
 var score = 0;
+
+// for looping arrays in functions
 var loopInt = 0;
+
+// for looping array in required json
 var jsonNum = 0;
-var clozeNum = 0;
+
+// for displaying created cards
+var displayNum = 0;
+
 var createFullText = [];
 var createClozeText = [];
+var storeNewCard = [];
 
 // Welcome logs
 console.log("\n Welcome To Flash N Cloze\n");
@@ -42,7 +50,7 @@ var startGame = function () {
                     createClozeFull()
                     break;
                 case "Show My Made Cards":
-
+                    showCard()
                     break;
                 default:
                     console.log('Have A Great Day!');
@@ -83,12 +91,11 @@ var TriviaQuestions = function () {
     }
 }
 
-
 function createClozeFull() {
-    if (clozeNum < 5) {
+    if (loopInt < 5) {
         inquirer
             .prompt([{
-                message: ClozeJson[3].FullText[clozeNum],
+                message: ClozeJson[3].FullText[loopInt],
                 name: 'answer',
                 validate: function (input) {
                     if (input === '') {
@@ -107,8 +114,7 @@ function createClozeFull() {
             })
     } else {
         loopInt = 0;
-        clozeNum = 0;
-        console.log('Card Made');
+        console.log('Nicely Done! Your New Cloze Card is Made');
         startGame();
     }
 }
@@ -117,24 +123,42 @@ function createClozePartial() {
 
     inquirer
         .prompt([{
-            message: ClozeJson[3].Cloze[clozeNum],
+            message: ClozeJson[3].Cloze[loopInt],
             name: 'answer',
             validate: function (input) {
-                if (input === '' || input != createFullText[clozeNum]) {
-                    console.log('Please Make Sure Your Cloze is part of the Full Text');
+                if (input === '') {
+                    console.log('Please provide Cloze Text');
                     return false;
                 } else {
                     return true;
                 }
             }
+
         }])
         .then(function (inquirerResult) {
-
-            createClozeText.push(inquirerResult.answer)
+            console.log(createFullText);
+            createClozeText.push(ClozeCard(createFullText[loopInt], inquirerResult.answer))
+            var stringNew = JSON.stringify(createClozeText);
+            var parseNew = JSON.parse(stringNew);
+            storeNewCard.push("Your Cloze Question: " + parseNew[loopInt].partial + " & Your Answer " + parseNew[loopInt].cloze)
             loopInt++
-            clozeNum++;
+           
             createClozeFull();
         })
 
 }
 
+function showCard() {
+    
+    inquirer
+        .prompt([{
+            message: storeNewCard[displayNum],
+            name: 'answer',
+        }, ])
+        .then(function (inquirerResult) {
+            displayNum++
+            showCard()
+
+        })
+
+}
