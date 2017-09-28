@@ -23,4 +23,5 @@ The list adds new cards and allows you to make upto 5 cards.
 
 
 This is my basic with just trivia option.
+
 ![basic](https://user-images.githubusercontent.com/28733244/30970090-45476152-a432-11e7-881a-96fdc2ee4241.gif)
