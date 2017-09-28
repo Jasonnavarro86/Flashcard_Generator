@@ -6,13 +6,20 @@
     },
     {
         "Category" : "Movie Trivia",
-        "FullText" : ["The Movie Most Trilogy Most Famous For A Hover Board is Back To The Future", "Who's mom calls football 'The Devil!'?", "Who is from Tatooine?", "What Movie had romantic characters name Jack and Rose?", "What movie has a dream within a dream?"],
+        "FullText" : ["The Movie Trilogy Most Famous For A Hover Board is Back To The Future", "The Waterboy has a mom who calls football 'The Devil!'", "Luke Skywalker is from Tatooine", "The famous romantic characters name Jack and Rose are from Titanic ", "Inception is a movie that has dreams within dreams"],
         "Cloze" : ["Back To The Future", "The Waterboy", "Luke Skywalker", "Titanic", "Inception"]
         
     },
     {
         "Category" : "NBA Nick Name Trivia",
-        "FullText" : ["Who is the Black Mamba?", "Who is the Baby Face Assassin?", "Who is His Airness?", "Who is the Claw?", "Who is The Durantula?"],
+        "FullText" : ["Kobe Bryant is the Black Mamba", "Steph Curry is the Baby Face Assassin", "Michael Jordan is His Airness", "Kawhi Leonard is the Claw", "Kevin Durant is The Durantula"],
         "Cloze" : ["Kobe Bryant", "Steph Curry", "Michael Jordan", "Kawhi Leonard", "Kevin Durant"]
         
-    }]
+    },
+    {
+        "Category" : "Creating Your Cloze Cards",
+        "FullText" : ["Enter Your Full Text for Card 1", "Enter Your Full Text for Card 2", "Enter Your Full Text for Card 3", "Enter Your Full Text for Card 4", "Enter Your Full Text for Card 5"],
+        "Cloze" : ["Enter Your Cloze for Card 1", "Enter Your Cloze for Card 2", "Enter Your Cloze for Card 3", "Enter Your Cloze for Card 4", "Enter Your Cloze for Card 5"]
+    }
+    
+]
