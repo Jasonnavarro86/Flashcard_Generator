@@ -1,7 +1,7 @@
 # FLASHCARD_GENERATOR
 
 This is my Flash Card Generator Main Menu.
-You have the option to play trivia or create your own Flash cards.
+You have the option to play trivia or create your own flash cards.
 
 ![intro-cloze](https://user-images.githubusercontent.com/28733244/30969979-f30df2d4-a431-11e7-852e-9bf9422751d0.gif)
 
