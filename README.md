@@ -1,4 +1,4 @@
-#FLASHCARD_GENERATOR
+# FLASHCARD_GENERATOR
 
 This is my Cloze Card Generator Main Menu.
 You have the option to play trivia or create your own cloze cards.
