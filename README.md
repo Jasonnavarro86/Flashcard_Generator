@@ -1,11 +1,11 @@
 # FLASHCARD_GENERATOR
 
-This is my Flash Card Generator Main Menu.
+## This is my Flash Card Generator Main Menu.
 You have the option to play trivia or create your own flash cards.
 
 ![intro-cloze](https://user-images.githubusercontent.com/28733244/30969979-f30df2d4-a431-11e7-852e-9bf9422751d0.gif)
 
-This is trivia demo. Once you played a round your score will display.
+## This is trivia demo. Once you played a round your score will display.
 
 ![trivademo-cloze-2](https://user-images.githubusercontent.com/28733244/30969999-07fbd9b8-a432-11e7-850a-e9c149df6bad.gif)
 
@@ -22,6 +22,6 @@ When the user adds a new cards this it will show on the play list and users can 
 ![listtime2-cloze-5](https://user-images.githubusercontent.com/28733244/30970065-390f51e2-a432-11e7-929b-4ea722cd4662.gif)
 
 
-This is my basic with just trivia option.
+## This is my basic with just trivia option.
 
 ![basic](https://user-images.githubusercontent.com/28733244/30970090-45476152-a432-11e7-881a-96fdc2ee4241.gif)
